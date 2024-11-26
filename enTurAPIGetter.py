@@ -31,6 +31,7 @@ for x in routes:
     destinationCode = routes[x]["destinationCode"]
 
     for y in times:
+        # dateTime is the date used for the journey planning. This should be set to some time ahead of the current time to ensure data being fetched
         dateTime = '"2024-11-28T'+y+':00+01:00"'
         if times[y]:
             query =  "{trip(from:{name:"+originName+" place:"+originCode+"}to:{name:"+destinationName+" place:"+destinationCode+"}numTripPatterns:3 dateTime:"+dateTime+" walkSpeed:1.3 includeRealtimeCancellations:false arriveBy:true){tripPatterns{expectedStartTime expectedEndTime duration streetDistance legs{mode expectedStartTime expectedEndTime realtime distance duration serviceJourney{id}line{id publicCode}}}}}"
@@ -47,6 +48,7 @@ for x in routes:
 
 
 # opposite direction
+# the manual changes needed in the for-loop above is also needed here to make sure the opposite direction is requested correctly. THIS WILL BE FIXED TO BE EASIER TO USE
 for x in routes:
     # swap the origin and destination to get the route in the opposite direction
     originName = routes[x]["destinationName"]
