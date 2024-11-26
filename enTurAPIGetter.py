@@ -34,9 +34,9 @@ for x in routes:
         # dateTime is the date used for the journey planning. This should be set to some time ahead of the current time to ensure data being fetched
         dateTime = '"2024-11-28T'+y+':00+01:00"'
         if times[y]:
-            query =  "{trip(from:{name:"+originName+" place:"+originCode+"}to:{name:"+destinationName+" place:"+destinationCode+"}numTripPatterns:3 dateTime:"+dateTime+" walkSpeed:1.3 includeRealtimeCancellations:false arriveBy:true){tripPatterns{expectedStartTime expectedEndTime duration streetDistance legs{mode expectedStartTime expectedEndTime realtime distance duration serviceJourney{id}line{id publicCode}}}}}"
+            query =  "{trip(from:{name:"+originName+" place:"+originCode+"}to:{name:"+destinationName+" place:"+destinationCode+"}numTripPatterns:3 dateTime:"+dateTime+" walkSpeed:1.3 includeRealtimeCancellations:false arriveBy:true){tripPatterns{expectedStartTime aimedStartTime expectedEndTime aimedEndTime duration streetDistance legs{mode expectedStartTime aimedStartTime expectedEndTime aimedEndTime realtime distance duration serviceJourney{id}line{id publicCode}}}}}"
         else:
-            query = "{trip(from:{name:"+originName+" place:"+originCode+"}to:{name:"+destinationName+" place:"+destinationCode+"}numTripPatterns:3 dateTime:"+dateTime+" walkSpeed:1.3 includeRealtimeCancellations:false arriveBy:false){tripPatterns{expectedStartTime expectedEndTime duration streetDistance legs{mode expectedStartTime expectedEndTime realtime distance duration serviceJourney{id}line{id publicCode}}}}}"
+            query = "{trip(from:{name:"+originName+" place:"+originCode+"}to:{name:"+destinationName+" place:"+destinationCode+"}numTripPatterns:3 dateTime:"+dateTime+" walkSpeed:1.3 includeRealtimeCancellations:false arriveBy:false){tripPatterns{expectedStartTime aimedStartTime expectedEndTime aimedEndTime duration streetDistance legs{mode expectedStartTime aimedStartTime expectedEndTime aimedEndTime realtime distance duration serviceJourney{id}line{id publicCode}}}}}"
         
         fileName = now+".gql"
         BODY = {"query": query}
@@ -59,9 +59,9 @@ for x in routes:
     for y in times:
         dateTime = '"2024-11-28T'+y+':00+01:00"'
         if times[y]:
-            query =  "{trip(from:{name:"+originName+" place:"+originCode+"}to:{name:"+destinationName+" place:"+destinationCode+"}numTripPatterns:3 dateTime:"+dateTime+" walkSpeed:1.3 includeRealtimeCancellations:false arriveBy:true){tripPatterns{expectedStartTime expectedEndTime duration streetDistance legs{mode expectedStartTime expectedEndTime realtime distance duration serviceJourney{id}line{id publicCode}}}}}"
+            query =  "{trip(from:{name:"+originName+" place:"+originCode+"}to:{name:"+destinationName+" place:"+destinationCode+"}numTripPatterns:3 dateTime:"+dateTime+" walkSpeed:1.3 includeRealtimeCancellations:false arriveBy:true){tripPatterns{expectedStartTime aimedStartTime expectedEndTime aimedEndTime duration streetDistance legs{mode expectedStartTime aimedStartTime expectedEndTime aimedEndTime realtime distance duration serviceJourney{id}line{id publicCode}}}}}"
         else:
-            query = "{trip(from:{name:"+originName+" place:"+originCode+"}to:{name:"+destinationName+" place:"+destinationCode+"}numTripPatterns:3 dateTime:"+dateTime+" walkSpeed:1.3 includeRealtimeCancellations:false arriveBy:false){tripPatterns{expectedStartTime expectedEndTime duration streetDistance legs{mode expectedStartTime expectedEndTime realtime distance duration serviceJourney{id}line{id publicCode}}}}}"
+            query = "{trip(from:{name:"+originName+" place:"+originCode+"}to:{name:"+destinationName+" place:"+destinationCode+"}numTripPatterns:3 dateTime:"+dateTime+" walkSpeed:1.3 includeRealtimeCancellations:false arriveBy:false){tripPatterns{expectedStartTime aimedStartTime expectedEndTime aimedEndTime duration streetDistance legs{mode expectedStartTime aimedStartTime expectedEndTime aimedEndTime realtime distance duration serviceJourney{id}line{id publicCode}}}}}"
         
         fileName = now+".gql"
         BODY = {"query": query}
